@@ -269,7 +269,7 @@ dt, dfn {
 	<p>The following examples show common I2C usage in JavaScript. The variable <var>I2C</var> is a <a href="#I2CAccess"><code>I2CAccess</code></a> object in the examples blow.</p>
 	<section>
 		<h3 id="example-getting-access"><span class="secno">4.1 </span> Getting Access to the I2C</h3>
-		<p>This example shows how to request access to the set of I2Cs on the underlying  system.</p>
+		<p>This example shows how to request access to the set of I2C interfaces on the underlying  system.</p>
 		<pre class="example">var I2C = null;  // global I2CAccess object
 
 navigator.requestI2CAccess().then(
@@ -302,7 +302,7 @@ ports.values(function(port) {
 		<pre class="example">var port = null;  // global I2CPort object
 
 // get the I2CPort object representing the I2C port named "I2C18".
-I2C.ports.get(2).then(
+I2C.open((ports.get(2)).portNumber).then(
     function(I2CPort) {
         port = I2CPort; // store in the global
     },
@@ -323,7 +323,8 @@ I2C.ports.get(2).then(
 		<pre class="example">
 var slaveDevice = null;
 // Getting a slave device representing the slave address 0x40.
-port.getSlave(0x40).then(
+var slaveAddress = 0x40;
+port.getSlave(slaveAddress).then(
     function(I2CSlave) {
     	slaveDevice = I2CSlave; // store in global
     },
@@ -336,19 +337,20 @@ port.getSlave(0x40).then(
 		<h3 id="example-read-the-value"><span class="secno">4.6 </span> Reading the value</h3>
 		<p>This example shows how to read a value of a specified register(0x10) on a I2C slave device.</p>
 		<pre class="example">
-// read the registar value of a I2C slave device
+// read the eight bits value from a specified registar (0x10)
+var readRegistar = 0x10;
 window.setInterval(function() {
-    slaveDevice.read(0x10).then(readSuccess, I2CError);
+    slaveDevice.read8(readRegistar).then(readSuccess, I2CError);
 }, 1000);
 
 // the value successfully read
 function readSuccess(value) {
-    console.log(slaveDevice.address + ": " + value);
+    console.log(slaveAddress + ":" + readRegistar + ": " + value);
 }
 
 // Show an error
 function I2CError(error) {
-    console.log("Error: " + error.message + "(" + slaveDevice.address + ")");
+    console.log("Error: " + error.message + "(" + slaveAddress + ")");
 }</pre>
 	</section>
 	<section>
@@ -358,11 +360,11 @@ function I2CError(error) {
 </pre>
 	</section>
 	<section>
-		<h3 id="example-writing-a-value-to-a-I2C-port"><span class="secno">4.8 </span> Writing a value to a I2C port</h3>
-		<p>This example shows how to write a value of a specified register(0x11) on a I2C slave device. This example writes  0 or 1 one after the other to the I2C port 0x10 at a second interval.</p>
+		<h3 id="example-writing-a-value-to-a-I2C-port"><span class="secno">4.8 </span> Writing a value</h3>
+		<p>This example shows how to write a eight bits value of a specified register(0x11) on a I2C slave device. This example writes  0 or 1 one after the other to the I2C port 0x10 at a second interval.</p>
 		<pre class="example">
 // register number to write
-var reg = 0x11;
+var writeRegistar = 0x11;
 
 // the value to be written
 var v = 0;
@@ -371,7 +373,7 @@ writeValue();
 
 function writeValue(){
 	v = v ? 0 : 1;
-	slaveDevice.write(reg, v).then(writeSuccess, I2CError);
+	slaveDevice.write8(writeRegistar, v).then(writeSuccess, I2CError);
 }
 
 // the value successfully written
