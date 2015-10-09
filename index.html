@@ -328,7 +328,7 @@ I2C.open((ports.get(2)).portNumber).then(
 var slaveDevice = null;
 // Getting a slave device representing the slave address 0x40.
 var slaveAddress = 0x40;
-port.getSlave(slaveAddress).then(
+port.open(slaveAddress).then(
     function(I2CSlave) {
     	slaveDevice = I2CSlave; // store in global
     },
