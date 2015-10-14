@@ -1,0 +1,18 @@
+<!doctype html>
+
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1">
+        <title>Test I2C</title>
+        <script src="./js/WebI2C.js"></script>
+        <script src="./js/AQM0802A-RN-GBW.js"></script>
+    </head>
+    <body>
+        <h3>I2C</h3>
+        <input type="text" id="row0" maxlength="8"></input><br />
+        <input type="text" id="row1" maxlength="8"></input><br />
+        <button id="submitButton">submit string</button>
+        Contrast: <input type="range" id="contrast" value="0" min="0" max="15"/>
+    </body>
+</html>
