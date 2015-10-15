@@ -141,7 +141,7 @@ dt, dfn {
 	<!--end-logo-->
 	<h1>Web I2C API</h1>
 	<p class="subtitle">Draft Report
-		<time datetime="2015-10-07">7 October 2015</time>
+		<time datetime="2015-10-15">15 October 2015</time>
 	</p>
 	<dl>
 		<dt>This Version:</dt>
@@ -395,6 +395,8 @@ function I2CError(error) {
 <section>
 	<h2 id="interfaces"><span class="secno">5 </span> Interfaces </h2>
 	<section>
+	<p class="open-issue"> Although many functions return Promise, the some may be things sufficient by just returning an instance. </p>
+	<p class="open0issue">The policy of arbitration when two or more apps call these API </p>
 		<h3 id="navigator-I2C"><span class="secno">5.1 </span> The <code>requestI2CAccess()</code> method</h3>
 		<pre class="idl">partial interface Navigator {
     <a href="#Promise">Promise</a>&lt;<a href="#I2CAccess">I2CAccess</a>&gt; <a href="#requestI2CAccess">requestI2CAccess</a> ();
@@ -578,6 +580,7 @@ for (port in ports) {
 	</section>
 	<section>
 		<h3 id="I2CSlaveDevice-interface"><span class="secno">5.5 </span> The <code>I2CSlaveDevice</code> interface</h3>
+		<p class="open-issue">I2CSlaveDevice object may be useful to applications programmers. On the other hand, probably there is no concept of slavedevice in the library on linux etc. which will serve as a base of webI2C. The realizability of an implementation should be checked. </p>
 		<pre class="idl">
 interface <dfn id="I2CSlaveDevice">I2CSlaveDevice</dfn> : <a href="#EventTarget">EventTarget</a> {
 
@@ -715,6 +718,7 @@ interface <dfn id="I2CSlaveDevice">I2CSlaveDevice</dfn> : <a href="#EventTarget"
 		<p class="note">After the <code>change</code> event is fired on the <a href="#I2CPort"><code>I2CPort</code></a> <a href="#I2C-interface"></a> object, another <code>change</code> event will be fired on the <a href="#I2CAccess-interface"><code>I2CAccess</code></a> object. Therefore, the event handler set on the <a href="#I2C-interface"></a> <a href="#I2CPort"><code>I2CPort</code></a> is invoked before the event handler set on the <a href="#I2CAccess-interface"><code>I2CAccess</code></a> object is invoked.</p>
 		-->
 		<p>The <dfn id="read16"><code>read16()</code></dfn> and the <dfn id="write16"><code>write16()</code></dfn> are reading and writing methods for 16 bits. Each processing follows <a href="#read8"><code>read8()</code></a> and <a href="#write8"><code>write8()</code></a> except bits length.</p>
+		<p class="open-issues">What is byte order?</p>
 	</section>
 	
 	<!--
