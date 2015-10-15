@@ -396,7 +396,8 @@ function I2CError(error) {
 	<h2 id="interfaces"><span class="secno">5 </span> Interfaces </h2>
 	<section>
 	<p class="open-issue"> Although many functions return Promise, the some may be things sufficient by just returning an instance. </p>
-	<p class="open0issue">The policy of arbitration when two or more apps call these API </p>
+	<p class="open-issue">The policy of arbitration when two or more apps call these API </p>
+	<p class="open-issue">There are requests to treat also as streaming devices. Examination which enables it to use <a href="https://streams.spec.whatwg.org/">Streams</a> is needed. </p>
 		<h3 id="navigator-I2C"><span class="secno">5.1 </span> The <code>requestI2CAccess()</code> method</h3>
 		<pre class="idl">partial interface Navigator {
     <a href="#Promise">Promise</a>&lt;<a href="#I2CAccess">I2CAccess</a>&gt; <a href="#requestI2CAccess">requestI2CAccess</a> ();
