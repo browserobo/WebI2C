@@ -677,7 +677,7 @@ interface <dfn id="I2CSlaveDevice">I2CSlaveDevice</dfn> {
 				<p><strong>success</strong>: Call <var>resolver</var>'s <code>accept(<var>value</var>)</code> method with <var>regiser value</var> as <var>value</var> argument. Abort these steps.</p>
 			</li>
 			<li>
-				<p><strong>failure</strong>: Let <var>error</var> be a new <a href="#DOMExceptions"><code>DOMExceptions</code></a>. This must be of type "<code>InvalidAccessError</code>".</p>
+				<p><strong>failure</strong>: Let <var>error</var> be a new <a href="#DOMExceptions"><code>DOMExceptions</code></a>. This must be of type "<code>InvalidAccessError</code>" or "<code>OperatioError</code>".</p>
 			</li>
 		</ol>
 		<p>The <dfn id="write8"><code>write8()</code></dfn> method writes the value passed as the first argument to the related I2C port. The value must be <a href="http://www.w3.org/TR/WebIDL/#idl-octet">octet</a>. When the <a href="#write8"><code>write8()</code></a> method is invoked, the user agent must run the steps as follows:</p>
@@ -702,7 +702,7 @@ interface <dfn id="I2CSlaveDevice">I2CSlaveDevice</dfn> {
 				<p><strong>success</strong>: Call <var>resolver</var>'s <code>accept(<var>value</var>)</code> method with <var>value</var> as <var>value</var> argument. Abort these steps.</p>
 			</li>
 			<li>
-				<p><strong>failure</strong>: Let <var>error</var> be a new <a href="#DOMExceptions"><code>DOMExceptions</code></a>. This must be of type "<code>InvalidAccessError</code>".</p>
+				<p><strong>failure</strong>: Let <var>error</var> be a new <a href="#DOMExceptions"><code>DOMExceptions</code></a>. This must be of type "<code>InvalidAccessError</code>" or "<code>OperatioError</code>".</p>
 			</li>
 		</ol>
 		<!--
