@@ -440,7 +440,7 @@ function I2CError(error) {
 		<h3 id="I2CAccess-interface"><span class="secno">5.2 </span> The <code>I2CAccess</code> interface</h3>
 		<pre class="idl">interface <dfn id="I2CAccess">I2CAccess</dfn> {
     readonly attribute <a href="#I2CPortMap">I2CPortMap</a>    <a href="#ports">ports</a>;
-    <a href="#Promise">Promise</a>&lt;<a href="#I2CPort">I2CPort</a>&gt; <a href="#open">open</a>(unsigned short I2CAddress);
+<!--    <a href="#Promise">Promise</a>&lt;<a href="#I2CPort">I2CPort</a>&gt; <a href="#open">open</a>(unsigned short I2CAddress);-->
 <!--    <a href="#Promise">Promise</a>  <a href="#unexportAll">unexportAll</a>();-->
 <!--
              attribute EventHandler   <a href="#onchange-I2Caccess">onchange</a>;-->
@@ -528,6 +528,8 @@ function I2CError(error) {
 };</pre>
 		<p>The <dfn id="size"><code>size</code></dfn> attributes is the number of  I2C ports available on the underlying operating system at the current time.</p>
 		<p>The <dfn id="keys"><code>keys()</code></dfn> method is an iterator for keys. The <dfn id="values"><code>values()</code></dfn> method is an iterator for values.</p>
+		<p>The <dfn id="get"><code>get()</code></dfn> method returnes a <a href="#I2CPort"><code>I2CPort</code></a> object corresponding to <var>portNumber</var>.</p>
+		<p>The <dfn id="getByName"><code>getByName()</code></dfn> method returnes a <a href="#I2CPort"><code>I2CPort</code></a> object corresponding to <var>portName</var>.</p>
 <!--		<p>The <dfn id="get"><code>get()</code></dfn> method is a getter for a <a href="#I2CPort"><code>I2CPort</code></a>. When the <a href="#get"><code>get()</code></a> method is invoked, the I2C port number must be passed as the first argument. If the first argument is not specified, or it is not valid as a port number, or it does not represent any I2C port available on the underlying operating system, the <a href="#get"><code>get()</code></a> method must return null. Otherwise, the <a href="#get"><code>get()</code></a> method must return the <a href="#I2CPort"><code>I2CPort</code></a> corresponding to the specified port number.</p>
 		<p>This interface is used to represent all the currently available I2C ports as a MapClass-like interface. This interface also act as an associative array:</p>
 		<pre class="example">// Iterate for values
