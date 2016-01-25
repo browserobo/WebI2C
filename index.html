@@ -263,7 +263,7 @@ dt, dfn {
 </section>
 <section>
 	<h2 id="terminology"><span class="secno">3 </span> Terminology</h2>
-	<p>The <dfn id="EventTarget"><code>EventTarget</code></dfn>, <dfn id="Event"><code>Event</code></dfn>, and <dfn id="EventInit"><code>EventInit</code></dfn> interfaces are defined in the Web IDL specification. <a href="#refsDOM4">[DOM4]</a></p>
+<!--	<p>The <dfn id="EventTarget"><code>EventTarget</code></dfn>, <dfn id="Event"><code>Event</code></dfn>, and <dfn id="EventInit"><code>EventInit</code></dfn> interfaces are defined in the Web IDL specification. <a href="#refsDOM4">[DOM4]</a></p>-->
 	<p>The <dfn id="DOMExceptions"><code>DOMExceptions</code></dfn> interfaces is defined in the Web IDL specification. <a href="#refsWEBIDL">[WEBIDL]</a></p>
 	<p>The <dfn id="Promise"><code>Promise</code></dfn> is defined in ECMA-262 6th Edition. <a href="#refsES6">[ES6]</a></p>
 </section>
@@ -438,10 +438,10 @@ function I2CError(error) {
 	</section>
 	<section>
 		<h3 id="I2CAccess-interface"><span class="secno">5.2 </span> The <code>I2CAccess</code> interface</h3>
-		<pre class="idl">interface <dfn id="I2CAccess">I2CAccess</dfn> : <a href="#EventTarget">EventTarget</a> {
+		<pre class="idl">interface <dfn id="I2CAccess">I2CAccess</dfn> {
     readonly attribute <a href="#I2CPortMap">I2CPortMap</a>    <a href="#ports">ports</a>;
-    <a href="#Promise">Promise</a>&lt;<a href="#I2CPort">I2CPort</a>&gt; <a href="#unexportAll">open</a>(unsigned short I2CAddress);
-    <a href="#Promise">Promise</a>  <a href="#unexportAll">unexportAll</a>();
+    <a href="#Promise">Promise</a>&lt;<a href="#I2CPort">I2CPort</a>&gt; <a href="#open">open</a>(unsigned short I2CAddress);
+<!--    <a href="#Promise">Promise</a>  <a href="#unexportAll">unexportAll</a>();-->
 <!--
              attribute EventHandler   <a href="#onchange-I2Caccess">onchange</a>;-->
 };</pre>
@@ -546,7 +546,7 @@ for (port in ports) {
 	</section>
 	<section>
 		<h3 id="I2CPort-interface"><span class="secno">5.4 </span> The <code>I2CPort</code> interface</h3>
-		<pre class="idl">interface <dfn id="I2CAccess">I2CPort</dfn> : <a href="#EventTarget">EventTarget</a> {
+		<pre class="idl">interface <dfn id="I2CAccess">I2CPort</dfn> {
     readonly attribute <a href="#I2CSlaveDeviceMap">I2CSlaveDeviceMap</a>    <a href="#slaves">slaves</a>;
     <a href="#Promise">Promise</a>&lt;<a href="#I2CSlaveDevice">I2CSlaveDevice</a>&gt; <a href="#open">open</a>(unsigned short I2CSlaveAddress);
 <!--
@@ -583,7 +583,7 @@ for (port in ports) {
 		<h3 id="I2CSlaveDevice-interface"><span class="secno">5.5 </span> The <code>I2CSlaveDevice</code> interface</h3>
 		<p class="open-issue">I2CSlaveDevice object may be useful to applications programmers. On the other hand, probably there is no concept of slavedevice in the library on linux etc. which will serve as a base of webI2C. The realizability of an implementation should be checked. </p>
 		<pre class="idl">
-interface <dfn id="I2CSlaveDevice">I2CSlaveDevice</dfn> : <a href="#EventTarget">EventTarget</a> {
+interface <dfn id="I2CSlaveDevice">I2CSlaveDevice</dfn> {
 
     readonly attribute unsigned short <a href="#slaveAddress">slaveAddress</a>;
 
@@ -743,6 +743,7 @@ interface <dfn id="I2CChangeEvent">I2CChangeEvent</dfn> : <a href="#Event">Event
 		<p>The <code>value</code> attribute is a value of the related I2C port.</p>
 	</section>
 	-->
+	<p class="open-issue">We want events to each slaves. </p>
 </section>
 <section>
 	<h2 id="security-considerations"><span class="secno">6 </span> Security considerations</h2>
