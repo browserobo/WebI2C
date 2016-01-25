@@ -551,10 +551,10 @@ for (port in ports) {
     <a href="#Promise">Promise</a>&lt;<a href="#I2CSlaveDevice">I2CSlaveDevice</a>&gt; <a href="#open">open</a>(unsigned short I2CSlaveAddress);
 <!--
     <a href="#Promise">Promise</a>  <a href="#unexportAll">unexportAll</a>();
-             attribute EventHandler   <a href="#onchange-I2Caccess">onchange</a>;-->
-    <a href="#Promise">Promise</a>  <a href="#close">close</a>();
+             attribute EventHandler   <a href="#onchange-I2Caccess">onchange</a>;
+    <a href="#Promise">Promise</a>  <a href="#close">close</a>();-->
 };</pre>
-		<p>The <dfn id="ports"><code>slaves</code></dfn> attribute must return the <a href="#I2CSlaveDeviceMap"><code>I2CSlaveDeviceMap</code></a> object representing all of the I2C slave devices available on the underlying operating system.</p>
+		<!--<p>The <dfn id="ports"><code>slaves</code></dfn> attribute must return the <a href="#I2CSlaveDeviceMap"><code>I2CSlaveDeviceMap</code></a> object representing all of the I2C slave devices available on the underlying operating system.</p>-->
 		
 		<p>The <dfn id="open"><code>open()</code></dfn> method is used to get <a href="#I2CSlaveDevice"><code>I2CSlaveDevice</code></a> object. When the <a href="#open"><code>open()</code></a> method is invoked, the address number must be passed as the first argument. Otherwise, the <a href="#open"><code>open()</code></a> method must return the <a href="#I2CSlaveDevice"><code>I2CSlaveDevice</code></a> corresponding to the specified address.</p>
 		<ol>
@@ -574,7 +574,7 @@ for (port in ports) {
 				<p><strong>success</strong>: Call <var>resolver</var>'s <code>accept(<var>value</var>)</code> method with <var>access</var> as <var>value</var> argument. Abort these steps.</p>
 			</li>
 			<li>
-				<p><strong>failure</strong>: Let <var>error</var> be a new <a href="#DOMExceptions"><code>DOMExceptions</code></a>. This must be of type "<code>NotSupportedError</code>". Then call <var>resolver</var>'s <code>reject(<var>value</var>)</code> method with <var>error</var> as <var>value</var> argument.</p>
+				<p><strong>failure</strong>: Let <var>error</var> be a new <a href="#DOMExceptions"><code>DOMExceptions</code></a>. This must be of type "<code>NotSupportedError</code>" or "<code>OperationError</code>". Then call <var>resolver</var>'s <code>reject(<var>value</var>)</code> method with <var>error</var> as <var>value</var> argument.</p>
 			</li>
 		</ol>
 		
@@ -587,7 +587,7 @@ interface <dfn id="I2CSlaveDevice">I2CSlaveDevice</dfn> {
 
     readonly attribute unsigned short <a href="#slaveAddress">slaveAddress</a>;
 
-    <a href="#Promise">Promise</a>  <a href="#close">close</a>();
+<!--    <a href="#Promise">Promise</a>  <a href="#close">close</a>();-->
 
     <a href="#Promise">Promise</a>  <a href="#read8">read8</a>(unsigned short registerNumber);
     <a href="#Promise">Promise</a>  <a href="#read16">read16</a>(unsigned short registerNumber);
