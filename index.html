@@ -306,6 +306,8 @@ ports.values(function(port) {
 		<pre class="example">var port = null;  // global I2CPort object
 
 // get the I2CPort object representing the I2C port named "I2C18".
+port = ports.get(2);
+<!--
 I2C.open((ports.get(2)).portNumber).then(
     function(I2CPort) {
         port = I2CPort; // store in the global
@@ -313,7 +315,7 @@ I2C.open((ports.get(2)).portNumber).then(
     function(error) {
         console.log("Failed to get I2C port: " + error.message);
     }
-);</pre>
+);--></pre>
 	</section>
 	
 	<section>
