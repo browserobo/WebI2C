@@ -728,7 +728,7 @@ interface <dfn id="I2CSlaveDevice">I2CSlaveDevice</dfn> {
 		<p class="note">After the <code>change</code> event is fired on the <a href="#I2CPort"><code>I2CPort</code></a> <a href="#I2C-interface"></a> object, another <code>change</code> event will be fired on the <a href="#I2CAccess-interface"><code>I2CAccess</code></a> object. Therefore, the event handler set on the <a href="#I2C-interface"></a> <a href="#I2CPort"><code>I2CPort</code></a> is invoked before the event handler set on the <a href="#I2CAccess-interface"><code>I2CAccess</code></a> object is invoked.</p>
 		-->
 		<p>The <dfn id="read16"><code>read16()</code></dfn> and the <dfn id="write16"><code>write16()</code></dfn> are reading and writing methods for 16 bits. Each processing follows <a href="#read8"><code>read8()</code></a> and <a href="#write8"><code>write8()</code></a> except bits length.</p>
-		<p class="open-issues">Why is there read* write*? What is byte order?</p>
+		<p class="open-issue">Why is there read* write*? What is byte order?</p>
 	</section>
 	
 	<!--
